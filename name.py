@@ -1,9 +1,6 @@
-plan = "abcd"
-month1 = "abcd"
-month3 = "bcde"
-month6 = "cdef"
-month12= "defg"
-Flag = True
+
+#-----------------------------------------FUNCTIONS----------------------------------------------------
+
 def PLAN():
     global Flag
     query = input("Do you want to view your current plan?(y/n) => ")
@@ -14,6 +11,10 @@ def PLAN():
             if quest.lower() in "y":
                 CHANGE()
                 Flag = True
+            elif quest.lower() in "n":
+                return
+            else:
+                print("Please enter a valid response.")
         else:
             if plan == month1:
                 print ("You currently have the Monthly Plan.")
@@ -23,6 +24,21 @@ def PLAN():
                 print ("You currently have the Half Yearly Plan.")
             elif plan == month12:
                 print ("You currently have the Yearly Plan.")
+            quest = input("Do you want to change your current plan?(y/n) => ")
+            if quest.lower() in "y":
+                CHANGE()
+                Flag = True
+            elif quest.lower() in "n":
+                return
+            else:
+                print("Please enter a valid response.")
+    elif query.lower() in "n":
+        return 
+    else:
+        print("Please enter a valid response.")
+
+
+
 
 def CHANGE():
     print('''AVAILABLE PLANS
@@ -41,4 +57,14 @@ def CHANGE():
         print ("You have now switched to the Yearly Plan.")
     else:
         print ("Please enter a valid code.")
+
+
+
+#-----------------------------------MAIN---------------------------------------------------
+plan = "abcd"
+month1 = "abcd"
+month3 = "bcde"
+month6 = "cdef"
+month12= "defg"
+Flag = True
 PLAN()
