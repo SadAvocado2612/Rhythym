@@ -41,6 +41,7 @@ def PLAN():
 
 
 def CHANGE():
+    global plan
     print('''AVAILABLE PLANS
             (A) Monthly Plan for 1 month
             (B) Quarterly Plan for 3 months 
@@ -49,12 +50,16 @@ def CHANGE():
     code1 = input("Enter the special code you've recieved => ")
     if code1 == month1:
         print ("You have now switched to the Monthly Plan.")
+        plan = code1
     elif code1 == month3:
         print ("You have now switched to the Quarterly Plan.")
+        plan = code1
     elif code1 == month6:
         print ("You have now switched to the Half Yearly Plan.")
+        plan = code1
     elif code1 == month12:
         print ("You have now switched to the Yearly Plan.")
+        plan = code1
     else:
         print ("Please enter a valid code.")
 
