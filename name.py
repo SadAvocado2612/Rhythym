@@ -65,13 +65,18 @@ def CHANGE():
 
 
 
-#-----------------------------------MAIN---------------------------------------------------
+#--------------------------------------TEMPORARY------------------------------------------------
+
+
 plan = "abcd"
 month1 = "abcd"
 month3 = "bcde"
 month6 = "cdef"
 month12= "defg"
 Flag = True
+
+#----------------------------------------MAIN---------------------------------------------------
+
 print('''---------MAIN--MENU---------
       (A) Search
       (B) Create Playlist
@@ -91,4 +96,6 @@ while True:
         print ("To be done")
     elif query.lower() in "e":
         PLAN()
-
+    else:
+        print("Please enter a valid response")
+        
