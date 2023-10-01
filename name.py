@@ -1,3 +1,5 @@
+import pymysql
+
 
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
@@ -37,8 +39,20 @@ def PLAN():
     else:
         print("Please enter a valid response.")
 
-
-
+def searchSong(sqlCursor):
+    conn = pymysql.connect(
+        host='localhost',
+        user='root', 
+        password = "",
+        db='Songs',
+        )
+    cur = conn.cursor()
+    
+    type = input("Do you want to search by name(N), genre(G), or artist(A)?").upper().strip()
+    query = input("Enter search query")
+    if type.startswith('N'):
+        cur.execute("")
+        
 
 def CHANGE():
     global plan
