@@ -72,4 +72,23 @@ month3 = "bcde"
 month6 = "cdef"
 month12= "defg"
 Flag = True
-PLAN()
+print('''---------MAIN--MENU---------
+      (A) Search
+      (B) Create Playlist
+      (C) View Playlists
+      (D) Generate Report
+      (E) Check Subscription Plan
+      ----------------------------''')
+while True:
+    query = input("Please Enter the task you want to carry out => ")
+    if query.lower() in "a":
+        print ("To be done")
+    elif query.lower() in "b":
+        print ("To be done")
+    elif query.lower() in "c":
+        print ("To be done")
+    elif query.lower() in "d":
+        print ("To be done")
+    elif query.lower() in "e":
+        PLAN()
+
