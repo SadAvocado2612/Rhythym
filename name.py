@@ -55,12 +55,12 @@ def createPlaylist():
 
 def playSong(filename):
     
-    # playsound('C:\Resume\Rythym\dangerously.mp3')
+    # playsound('C:\Resume\Rythym\dangerously.mp3') 
     mixer.music.load(filename+'.mp3')
     mixer.music.set_volume(0.7)
     mixer.music.play()
     while True:
-        query = input("Press 1 to pause, 2 to resume, 3 to end")
+        query = input("Press 1 to pause, 2 to resume, 3 to go forward")
         if query == '1':
             mixer.music.pause()     
         elif query == '2':
@@ -69,7 +69,11 @@ def playSong(filename):
             mixer.music.stop()
             break
 
-# def play 
+def playPlaylist(playlist):
+    for song in playlist:
+        print('\n Playing "{}. {} by {} Songcode- {} \n'.format(str(i),result[1],result[2],str(result[0])))
+        playSong(song[5])
+    print('\n End of Playlist \n')
 
 def searchSong():
     type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
@@ -102,6 +106,7 @@ def searchSong():
         return
     print(l[0][6])
     playSong(l[0][5])
+    
 def CHANGE():
     global plan
     print('''AVAILABLE PLANS
