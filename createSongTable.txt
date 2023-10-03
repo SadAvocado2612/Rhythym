@@ -1,0 +1,51 @@
+create table Songs(
+    songID int Auto_increment PRIMARY KEY,
+    songName varchar(40),
+    artist varchar(80),
+    genre varchar(40),
+    duration numeric(3),
+    filename varchar(40),
+    lyrics text
+);
+ALTER table Songs AUTO_Increment = 100000;
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES("Dangerously","Charlie Puth","Pop",199,"dangerously","This is gonna hurt but I blame myself first
+'Cause I ignored the truth
+Drunk off that love, fuck my head up
+There's no forgetting you
+You've awoken me, but you're choking me
+I was so obsessed
+Gave you all of me, and now honestly, I got nothing left
+I loved you dangerously
+More than the air that I breathe
+Knew we would crash at the speed that we were going
+Didn't care if the explosion ruined me
+Baby, I loved you dangerously
+Mm, mm
+I loved you dangerously
+Usually, I hold the power with both my hands
+Tied behind my back
+Look at how things change, 'cause now you're the train
+And I'm tied to the track
+You've awoken me, but you're choking me
+I was so obsessed
+Gave you all of me, and now honestly, I got nothing left
+'Cause I loved you dangerously
+More than the air that I breathe
+Knew we would crash at the speed that we were going
+Didn't care if the explosion ruined me
+Baby, I loved you dangerously
+You took me down, down, down, down
+And kissed my lips with goodbye
+I see it now, now, now, now
+It was a matter of time
+You know I know, there's only one place this could lead
+But you are the fire, I'm gasoline
+I love you, I love you, I love you
+I loved you dangerously
+Ooh, more than the air that I breathe
+Oh, now, knew we would crash at the speed that we were going
+Didn't care if the explosion ruined me
+Oh, oh baby, I loved you dangerously
+Mm, mm
+Ooh, I loved you dangerously
+Ooh, ooh, I loved you dangerously");

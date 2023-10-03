@@ -1,4 +1,3 @@
-from pygame import mixer
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
 def PLAN():
@@ -56,18 +55,57 @@ def createPlaylist():
 
 def playSong(filename):
     
+    # playsound('C:\Resume\Rythym\dangerously.mp3')
     mixer.music.load(filename+'.mp3')
+    mixer.music.set_volume(0.7)
     mixer.music.play()
-    while mixer.music.get_busy():
-        q = input("Enter 1 to pause song, 2 to play, 3 to finish")
-        if q=='1':
-            p.pause()
-        elif q=='2':
-            p.play()
-        elif q=='3':
+    while True:
+        query = input("Press 1 to pause, 2 to resume, 3 to end")
+        if query == '1':
+            mixer.music.pause()     
+        elif query == '2':
+            mixer.music.unpause()
+        elif query == '3':
+            mixer.music.stop()
             break
-    
 
+# def play 
+
+def searchSong():
+    type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
+    query = input("Enter search query").upper().strip()
+    if type=='N':
+        cur1.execute(("Select * from Songs where UPPER(songName) LIKE '%{}%'").format(query))
+    elif type=='G':
+        cur1.execute(("Select * from Songs where UPPER(genre) LIKE '%{}%'").format(query))
+    elif type=='A':
+        cur1.execute(("Select * from Songs where UPPER(artist) LIKE '%{}%'").format(query))
+            
+    else: 
+        print("Invalid input")
+        return
+    print('\n Results:- \n')
+    i=1
+    songs = cur1.fetchall()
+    for result in songs:
+        print ("{}. {} by {} Songcode- {}".format(str(i),result[1],result[4],str(result[0])))
+        i+=1
+    q = input("Enter songcode to play the song or q to quit").upper().strip()
+    if 'Q' in q:
+        return
+    l=[]
+    for song in songs:
+        print(song[0])
+        print(q)
+        if song[0]==int(q):
+            print("HEy")
+            l.append(song)
+    if l==[]:
+        print("Yo")
+        print("Couldn't find songcode")
+        return
+    print(l[0][3])
+    playSong(l[0][5])
 def CHANGE():
     global plan
     print('''AVAILABLE PLANS
@@ -106,7 +144,9 @@ Flag = True
 #----------------------------------------MAIN---------------------------------------------------
 
 import pymysql as p
-con1 = p.connect (host = "localhost", user ="Satvik", passwd = "Satvik06#", database = "Rhythm")
+from pygame import mixer
+
+con1 = p.connect (host = "localhost", user ="root", passwd = "Siddharth@1234", database = "Rhythm")
 cur1 = con1.cursor()
 mixer.init()
 
@@ -120,10 +160,10 @@ print('''---------MAIN--MENU---------
 
 
 while True:
+    # playSong('dangerously')
     query = input("Please Enter the task you want to carry out => ")
-    playSong('dangerously')
     if query.lower() in "a":
-        print ("To be done")
+        searchSong()
     elif query.lower() in "b":
         createPlaylist()
     elif query.lower() in "c":
