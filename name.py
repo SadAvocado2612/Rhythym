@@ -36,6 +36,8 @@ def PLAN():
     else:
         print("Please enter a valid response.")
 
+
+
 def createPlaylist():
     try:
         Playlist1 = input("What do you want to name your playlist => ")
@@ -53,14 +55,15 @@ def createPlaylist():
     except Exception as Satvik:
         print(Satvik)
 
+
+
 def playSong(filename):
-    
     # playsound('C:\Resume\Rythym\dangerously.mp3') 
     mixer.music.load(filename+'.mp3')
     mixer.music.set_volume(0.7)
     mixer.music.play()
     while True:
-        query = input("Press 1 to pause, 2 to resume, 3 to go forward")
+        query = input("Press 1 to pause, 2 to resume, 3 to go forward => ")
         if query == '1':
             mixer.music.pause()     
         elif query == '2':
@@ -69,22 +72,25 @@ def playSong(filename):
             mixer.music.stop()
             break
 
+
+
 def playPlaylist(playlist):
     for song in playlist:
         print('\n Playing "{}. {} by {} Songcode- {} \n'.format(str(i),result[1],result[2],str(result[0])))
         playSong(song[5])
     print('\n End of Playlist \n')
 
+
+
 def searchSong():
-    type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
-    query = input("Enter search query").upper().strip()
+    type = input("Do you want to search by name(N), genre(G) or artist(A)? => ").upper().strip()
+    query = input("Enter search query => ").upper().strip()
     if type=='N':
         cur1.execute(("Select * from Songs where UPPER(songName) LIKE '%{}%'").format(query))
     elif type=='G':
         cur1.execute(("Select * from Songs where UPPER(genre) LIKE '%{}%'").format(query))
     elif type=='A':
         cur1.execute(("Select * from Songs where UPPER(artist) LIKE '%{}%'").format(query))
-            
     else: 
         print("Invalid input")
         return
@@ -94,7 +100,7 @@ def searchSong():
     for result in songs:
         print ("{}. {} by {} Songcode- {}".format(str(i),result[1],result[2],str(result[0])))
         i+=1
-    q = input("Enter songcode to play the song or q to quit").upper().strip()
+    q = input("Enter songcode to play the song or q to quit => ").upper().strip()
     if 'Q' in q:
         return
     l=[]
@@ -107,6 +113,8 @@ def searchSong():
     print(l[0][6])
     playSong(l[0][5])
     
+
+
 def CHANGE():
     global plan
     print('''AVAILABLE PLANS
@@ -175,3 +183,4 @@ while True:
         PLAN()
     else:
         print("Please enter a valid response")
+        print("Nice")
