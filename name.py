@@ -1,6 +1,4 @@
-import pymysql
-
-
+from pygame import mixer
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
 def PLAN():
@@ -39,20 +37,36 @@ def PLAN():
     else:
         print("Please enter a valid response.")
 
-def searchSong(sqlCursor):
-    conn = pymysql.connect(
-        host='localhost',
-        user='root', 
-        password = "",
-        db='Songs',
-        )
-    cur = conn.cursor()
+def createPlaylist():
+    try:
+        Playlist1 = input("What do you want to name your playlist => ")
+        q1 = "Create table if not exists {}(Sno Int Primary Key Auto_increment, Songname Varchar(255) Not Null)".format(Playlist1)
+        cur1.execute(q1)
+        while True: 
+            songname = input("Enter the Name of the song you want to add to this playlist => ")
+            q2 = "insert into {} (Songname) values ('{}')".format(Playlist1, songname)
+            cur1.execute(q2)
+            quest = input("Do you wish to add more songs?(y/n) => ")
+            if quest.lower() in 'y':
+                continue
+            elif quest.lower() in "n":
+                break
+    except Exception as Satvik:
+        print(Satvik)
+
+def playSong(filename):
     
-    type = input("Do you want to search by name(N), genre(G), or artist(A)?").upper().strip()
-    query = input("Enter search query")
-    if type.startswith('N'):
-        cur.execute("")
-        
+    mixer.music.load(filename+'.mp3')
+    mixer.music.play()
+    while mixer.music.get_busy():
+        q = input("Enter 1 to pause song, 2 to play, 3 to finish")
+        if q=='1':
+            p.pause()
+        elif q=='2':
+            p.play()
+        elif q=='3':
+            break
+    
 
 def CHANGE():
     global plan
@@ -91,19 +105,27 @@ Flag = True
 
 #----------------------------------------MAIN---------------------------------------------------
 
+import pymysql as p
+con1 = p.connect (host = "localhost", user ="Satvik", passwd = "Satvik06#", database = "Rhythm")
+cur1 = con1.cursor()
+mixer.init()
+
 print('''---------MAIN--MENU---------
-      (A) Search
-      (B) Create Playlist
-      (C) View Playlists
-      (D) Generate Report
-      (E) Check Subscription Plan
-      ----------------------------''')
+(A) Search
+(B) Create Playlist
+(C) View Playlists
+(D) Generate Report
+(E) Check Subscription Plan
+----------------------------''')
+
+
 while True:
     query = input("Please Enter the task you want to carry out => ")
+    playSong('dangerously')
     if query.lower() in "a":
         print ("To be done")
     elif query.lower() in "b":
-        print ("To be done")
+        createPlaylist()
     elif query.lower() in "c":
         print ("To be done")
     elif query.lower() in "d":
@@ -112,4 +134,3 @@ while True:
         PLAN()
     else:
         print("Please enter a valid response")
-        
