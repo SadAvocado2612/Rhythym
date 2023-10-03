@@ -88,23 +88,19 @@ def searchSong():
     i=1
     songs = cur1.fetchall()
     for result in songs:
-        print ("{}. {} by {} Songcode- {}".format(str(i),result[1],result[4],str(result[0])))
+        print ("{}. {} by {} Songcode- {}".format(str(i),result[1],result[2],str(result[0])))
         i+=1
     q = input("Enter songcode to play the song or q to quit").upper().strip()
     if 'Q' in q:
         return
     l=[]
     for song in songs:
-        print(song[0])
-        print(q)
         if song[0]==int(q):
-            print("HEy")
             l.append(song)
     if l==[]:
-        print("Yo")
         print("Couldn't find songcode")
         return
-    print(l[0][3])
+    print(l[0][6])
     playSong(l[0][5])
 def CHANGE():
     global plan
