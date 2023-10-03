@@ -1,3 +1,4 @@
+from pygame import mixer
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
 def PLAN():
@@ -53,7 +54,19 @@ def createPlaylist():
     except Exception as Satvik:
         print(Satvik)
 
-
+def playSong(filename):
+    
+    mixer.music.load(filename+'.mp3')
+    mixer.music.play()
+    while mixer.music.get_busy():
+        q = input("Enter 1 to pause song, 2 to play, 3 to finish")
+        if q=='1':
+            p.pause()
+        elif q=='2':
+            p.play()
+        elif q=='3':
+            break
+    
 
 def CHANGE():
     global plan
@@ -95,6 +108,7 @@ Flag = True
 import pymysql as p
 con1 = p.connect (host = "localhost", user ="Satvik", passwd = "Satvik06#", database = "Rhythm")
 cur1 = con1.cursor()
+mixer.init()
 
 print('''---------MAIN--MENU---------
 (A) Search
@@ -107,6 +121,7 @@ print('''---------MAIN--MENU---------
 
 while True:
     query = input("Please Enter the task you want to carry out => ")
+    playSong('dangerously')
     if query.lower() in "a":
         print ("To be done")
     elif query.lower() in "b":
