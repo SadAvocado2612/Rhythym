@@ -36,31 +36,44 @@ def PLAN():
     else:
         print("Please enter a valid response.")
 
+
+
 def createPlaylist():
     try:
         Playlist1 = input("What do you want to name your playlist => ")
         q1 = "Create table if not exists {}(Sno Int Primary Key Auto_increment, Songname Varchar(255) Not Null)".format(Playlist1)
         cur1.execute(q1)
         while True: 
-            songname = input("Enter the Name of the song you want to add to this playlist => ")
-            q2 = "insert into {} (Songname) values ('{}')".format(Playlist1, songname)
-            cur1.execute(q2)
-            quest = input("Do you wish to add more songs?(y/n) => ")
-            if quest.lower() in 'y':
-                continue
-            elif quest.lower() in "n":
-                break
+            songname = input("Enter the Name of the song you want to add to this playlist => ").upper().strip()
+            cur1.execute(("Select * from Songs where upper(songName) LIKE '%{}%'").format(songname))
+            result = cur1.fetchall()
+            if result:
+                print ("Adding song ", result[0][1])
+                question = ("Confirm?(y/n) => ")
+                if question.lower() in 'y':
+                    q3 = "insert into {} (songID) values ('{}')".format(Playlist1, result[0][0])
+                    cur1.execute(q3)
+                    quest = input("Do you wish to add more songs?(y/n) => ")
+                    if quest.lower() in 'y':
+                        continue
+                    elif quest.lower() in "n":
+                        break
+                else:
+                    continue
+            else:
+                print ("This song does not exist in our current database. Sorry for inconvenience.")
     except Exception as Satvik:
         print(Satvik)
 
+
+
 def playSong(filename):
-    
     # playsound('C:\Resume\Rythym\dangerously.mp3') 
     mixer.music.load(filename+'.mp3')
     mixer.music.set_volume(0.7)
     mixer.music.play()
     while True:
-        query = input("Press 1 to pause, 2 to resume, 3 to go forward")
+        query = input("Press 1 to pause, 2 to resume, 3 to go forward => ")
         if query == '1':
             mixer.music.pause()     
         elif query == '2':
@@ -69,22 +82,25 @@ def playSong(filename):
             mixer.music.stop()
             break
 
+
+
 def playPlaylist(playlist):
     for song in playlist:
         print('\n Playing "{}. {} by {} Songcode- {} \n'.format(str(i),result[1],result[2],str(result[0])))
         playSong(song[5])
     print('\n End of Playlist \n')
 
+
+
 def searchSong():
-    type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
-    query = input("Enter search query").upper().strip()
+    type = input("Do you want to search by name(N), genre(G) or artist(A)? => ").upper().strip()
+    query = input("Enter search query => ").upper().strip()
     if type=='N':
         cur1.execute(("Select * from Songs where UPPER(songName) LIKE '%{}%'").format(query))
     elif type=='G':
         cur1.execute(("Select * from Songs where UPPER(genre) LIKE '%{}%'").format(query))
     elif type=='A':
         cur1.execute(("Select * from Songs where UPPER(artist) LIKE '%{}%'").format(query))
-            
     else: 
         print("Invalid input")
         return
@@ -94,7 +110,7 @@ def searchSong():
     for result in songs:
         print ("{}. {} by {} Songcode- {}".format(str(i),result[1],result[2],str(result[0])))
         i+=1
-    q = input("Enter songcode to play the song or q to quit").upper().strip()
+    q = input("Enter songcode to play the song or q to quit => ").upper().strip()
     if 'Q' in q:
         return
     l=[]
@@ -107,6 +123,8 @@ def searchSong():
     print(l[0][6])
     playSong(l[0][5])
     
+
+
 def CHANGE():
     global plan
     print('''AVAILABLE PLANS
@@ -174,9 +192,7 @@ while True:
     elif query.lower() in "e":
         PLAN()
     else:
-        print("Please enter a valid response")
-    
-
+        print("Please enter a valid response")    
 
 # GUI attempt
 
@@ -219,3 +235,4 @@ while True:
 
 # # Start the Tkinter event loop
 # root.mainloop()
+
