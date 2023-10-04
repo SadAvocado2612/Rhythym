@@ -44,14 +44,24 @@ def createPlaylist():
         q1 = "Create table if not exists {}(Sno Int Primary Key Auto_increment, Songname Varchar(255) Not Null)".format(Playlist1)
         cur1.execute(q1)
         while True: 
-            songname = input("Enter the Name of the song you want to add to this playlist => ")
-            q2 = "insert into {} (Songname) values ('{}')".format(Playlist1, songname)
-            cur1.execute(q2)
-            quest = input("Do you wish to add more songs?(y/n) => ")
-            if quest.lower() in 'y':
-                continue
-            elif quest.lower() in "n":
-                break
+            songname = input("Enter the Name of the song you want to add to this playlist => ").upper().strip()
+            cur1.execute(("Select * from Songs where upper(songName) LIKE '%{}%'").format(songname))
+            result = cur1.fetchall()
+            if result:
+                print ("Adding song ", result[0][1])
+                question = ("Confirm?(y/n) => ")
+                if question.lower() in y:
+                    q3 = "insert into {} (songID) values ('{}')".format(Playlist1, result[0][0])
+                    cur1.execute(q3)
+                    quest = input("Do you wish to add more songs?(y/n) => ")
+                    if quest.lower() in 'y':
+                        continue
+                    elif quest.lower() in "n":
+                        break
+                else:
+                    continue
+            else:
+                print ("This song does not exist in our current database. Sorry for inconvenience.")
     except Exception as Satvik:
         print(Satvik)
 
