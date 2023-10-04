@@ -175,3 +175,47 @@ while True:
         PLAN()
     else:
         print("Please enter a valid response")
+    
+
+
+# GUI attempt
+
+# ... Your existing functions ...
+
+# def open_search_song():
+#     query = simpledialog.askstring("Search Song", "Enter search query:")
+#     if query:
+#         searchSong(query)
+
+# def open_create_playlist():
+#     createPlaylist()
+
+# def open_view_playlists():
+#     messagebox.showinfo("View Playlists", "This feature is not implemented yet.")
+
+# def open_generate_report():
+#     messagebox.showinfo("Generate Report", "This feature is not implemented yet.")
+
+# def open_check_subscription_plan():
+#     PLAN()
+
+# # Create the main application window
+# root = tk.Tk()
+# root.title("Music Player")
+
+# # Create buttons for each action
+# search_button = tk.Button(root, text="Search", command=open_search_song)
+# create_playlist_button = tk.Button(root, text="Create Playlist", command=open_create_playlist)
+# view_playlists_button = tk.Button(root, text="View Playlists", command=open_view_playlists)
+# generate_report_button = tk.Button(root, text="Generate Report", command=open_generate_report)
+# check_subscription_button = tk.Button(root, text="Check Subscription Plan", command=open_check_subscription_plan)
+
+# # Place buttons on the GUI window
+# search_button.pack()
+# create_playlist_button.pack()
+# view_playlists_button.pack()
+# generate_report_button.pack()
+# check_subscription_button.pack()
+
+# # Start the Tkinter event loop
+# root.mainloop()
