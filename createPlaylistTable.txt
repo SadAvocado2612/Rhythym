@@ -1,0 +1,8 @@
+Create Table Playlists(
+    SNo Int Primary Key Auto_increment,
+    playlistName Varchar(255),
+    songsList Varchar(300) Not Null,
+    owner Varchar(255) Not Null,
+    sharedUsers Varchar(255),
+    listenCount int,
+);

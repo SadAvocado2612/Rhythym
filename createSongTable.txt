@@ -5,7 +5,8 @@ create table Songs(
     genre varchar(40),
     duration numeric(3),
     filename varchar(40),
-    lyrics text
+    lyrics text,
+    listenCount int,
 );
 ALTER table Songs AUTO_Increment = 100000;
 insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES("Dangerously","Charlie Puth","Pop",199,"dangerously","This is gonna hurt but I blame myself first

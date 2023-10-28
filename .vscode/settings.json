@@ -11,7 +11,8 @@
             "driver": "MySQL",
             "name": "Rhythm",
             "database": "Rhythm",
-            "username": "Satvik"
+            "username": "root",
+            "password": "Siddharth@1234"
         }
     ]
 }
