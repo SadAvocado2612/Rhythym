@@ -5,7 +5,8 @@ create table Songs(
     genre varchar(40),
     duration numeric(3),
     filename varchar(40),
-    lyrics text
+    lyrics text,
+    listenCount int,
 );
 ALTER table Songs AUTO_Increment = 100000;
 insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES("Dangerously","Charlie Puth","Pop",199,"dangerously","This is gonna hurt but I blame myself first
@@ -49,3 +50,1162 @@ Oh, oh baby, I loved you dangerously
 Mm, mm
 Ooh, I loved you dangerously
 Ooh, ooh, I loved you dangerously");
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Aadharanjali"," Madhuvanthi Narayan and Sushin Shyam","Drill trap",152,"aadharanjali","Sughikkam Va Mooshikare Vari Vari
+Ini Mel Nam Otta Muri Otta Viri
+Bhajikkam Va Othu Chollam Daiva Mozhi
+Vilicho Nee Ethukilla Rakshayini
+Puthaykkanay Kanji Mukkam Vella Thuni
+Pukaykkanay Chandanathin Thiri Mathi
+Alankaram Randu Veetham Panjiyunda
+Avasanam Vishramikkan Manninnadi
+Petteem Payeduthini Vathilu Muttam Viralillathe
+Natta Pathirakkoru Pattu Muzhakkam Pathivillathe
+Pettennake Munnile Bhithiyiloro Nizhaladumbol
+Kandittodidalle Oriyidalle
+Cheyum Pizha Pizha Pizha Athin Vila Kodum Vila
+Thettum Nila Sama Nila Motham Vira Vira
+Thuppum Nura Patha Chora Karakondu Niraykkum Pura
+Ningalkkadaranjali Neratte, Ningalkkadaranjali Neratte");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Beautiful Mistakes","Adam Levine","Pop rock rap",217,"beautifulmistakes","It's beautiful, it's bittersweet
+You're like a broken home to me
+I take a shot of memories and black out like an empty street
+I fill my days with the way you walk and fill my nights with broken dreams
+I make up lies inside my head
+Like, 'One day, you'll come back to me'
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy)
+Making beautiful mistakes
+It's pitiful, I can't believe how every day gets worse for me
+I take a break, I cut you off to keep myself from looking soft
+I fill my nights with the way you was and still wake up with broken dreams
+I make these lies inside my head
+Feel like they're my reality
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy-ayy)
+Making beautiful mistakes
+You did me wrong 'cause I let you
+Usually, I like my situations beneficial
+Doing something different, got me looking stupid (damn)
+The only way I'm coming back to you is if you dream it, lucid (hmm)
+Prove it, if you made a promise then keep it (keep it)
+Why you wanna lie and then get mad? I don't believe it (boy, bye)
+But really, I was doing just fine without ya
+Looking fine, sipping wine, dancing on club couches (ah)
+Baby, why you wanna lose me like you don't need me? (Like you don't need me)
+Like I don't block you and you still try to reach me (still try to reach me)
+How you figure out how to call me from the TV? (Huh?)
+You running outta chances and this time I mean it (ah)
+Yeah, bet you miss my love, all in your bed (bed)
+Now you're stressing out, pulling your hair (hair)
+Smelling your pillows and wishing I was there (I was there)
+Sliding down the shower wall, looking sad (sad)
+I know it's hard to let go, I'm the best (I'm the best)
+Best you ever had and best you gon' get (gon' get)
+And if we break up, I don't wanna be friends (be friends)
+You're toxic
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (yeah, yeah, oh-oh)
+Making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy, beautiful)
+Making beautiful mistakes
+Nah-nah-nah
+Nah-nah-nah (ooh)
+Nah-nah-nah");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Best Song Ever","One Direction","Pop",201,"bestsongever","Maybe it's the way she walked (wow)
+Straight into my heart and stole it
+Through the doors and past the guards (wow)
+Just like she already owned it
+I said, 'can you give it back to me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Said her name was Georgia Rose (wow)
+And her daddy was a dentist
+Said I had a dirty mouth (I got a dirty mouth)
+But she kissed me like she meant it
+I said, 'can I take you home with me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+You know, I know, you know I'll remember you
+And I know, you know, I know you'll remember me
+And you know, I know, you know I'll remember you
+And I know, you know, I hope you'll remember
+How we danced, how we danced (one, two, one, two, three)
+How we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night (we danced, we danced)
+To the best song ever (it goes something like, yeah)
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Best song ever
+It was the best song ever
+It was the best song ever
+It was the best song ever");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Chikni Chameli","Shreya Ghoshal","Indian Film Pop",303,"chiknichameli","Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Haaye Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Note Hazaron Ke
+Khulla Chhutta Karane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Jungle Mein Aaj
+Mangal Karungi Main
+Bhookhe Sheron Se
+Khelungi Main
+
+Makhan Jaisi Hatheli Pe
+Jalte Angaar Le Lungi Main
+
+Haaye Gehre Paani Ki
+Machhli Hoon Raja
+Ghaat Ghaat Dariya Mein
+Ghoomi Hoon Main
+
+Teri Nazron Ki Leharon Se
+Haar Ke Doobi Hoon Main
+
+Haaye Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+
+Pyar Se Paros Dungi
+Toot Le Zara
+
+Yeh Toh Trailer Hai
+Poori Fillam Dikhane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Hey Banjar Basti Mein
+Aayi Hai Masti
+Aisa Namkeen Chehra Tera
+Meri Niyat Pe Chadhke Chhute Na
+Hai Rang Gehra Tera
+
+Joban Yeh Mera Kainchi Hai Raja
+Saare Pardon Ko Kaatungi Main
+Shamein Meri Akeli Hai Aaja
+Sang Tere Baatungi Main
+
+Haaye Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+
+Tod Ke Tijoriyon Ko
+Loot Le Zara
+Choom Ke Zakhmon Mein
+Thoda Malham Lagane Aayi
+
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Haaye.. Hehehe");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Die For You","The Weeknd","RnB",260,"dieForYou","I'm findin' ways to articulate the feelin' I'm goin' through
+I just can't say I don't love you (Yeah)
+'Cause I love you, yeah
+It's hard for me to communicate the thoughts that I hold
+But tonight, I'm gon' let you know
+Let me tell the truth
+Baby, let me tell the truth, yeah
+
+[Pre-Chorus]
+You know what I'm thinkin', see it in your eyes
+You hate that you want me, hate it when you cry
+You're scared to be lonely, 'specially in the night
+I'm scared that I'll miss you, happens every time
+I don't want this feelin', I can't afford love
+I try to find a reason to pull us apart
+It ain't workin' 'cause you're perfect
+And I know that you're worth it
+I can't walk away, oh
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you
+Baby, I would die for you, yeah (Say)
+You might also like
+[Verse 2]
+I'm findin' ways to manipulate the feelin' you're goin' through
+But, baby girl, I'm not blamin' you
+Just don't blame me, too, yeah
+'Cause I can't take this pain forever
+And you won't find no one that's better
+'Cause I'm right for you, babe
+I think I'm right for you, babe
+
+[Pre-Chorus]
+You know what I'm thinkin', see it in your eyes
+You hate that you want me, hate it when you cry
+It ain't workin' 'cause you're perfect
+And I know that you're worth it
+I can't walk away, oh
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you, uh
+Baby, I would die for you, yeah
+[Bridge]
+I would die for you, I would lie for you
+Keep it real with you, I would kill for you, my baby
+I'm just sayin', yeah
+I would die for you, I would lie for you
+Keep it real with you, I would kill for you, my baby
+Na-na-na, na-na-na, na-na-na
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you
+Baby, I would die for you, yeah (Oh, babe)
+
+[Outro]
+(Die for you)");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Beautiful Mistakes","Adam Levine","Pop rock rap",217,"beautifulmistakes","It's beautiful, it's bittersweet
+You're like a broken home to me
+I take a shot of memories and black out like an empty street
+I fill my days with the way you walk and fill my nights with broken dreams
+I make up lies inside my head
+Like, 'One day, you'll come back to me'
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy)
+Making beautiful mistakes
+It's pitiful, I can't believe how every day gets worse for me
+I take a break, I cut you off to keep myself from looking soft
+I fill my nights with the way you was and still wake up with broken dreams
+I make these lies inside my head
+Feel like they're my reality
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy-ayy)
+Making beautiful mistakes
+You did me wrong 'cause I let you
+Usually, I like my situations beneficial
+Doing something different, got me looking stupid (damn)
+The only way I'm coming back to you is if you dream it, lucid (hmm)
+Prove it, if you made a promise then keep it (keep it)
+Why you wanna lie and then get mad? I don't believe it (boy, bye)
+But really, I was doing just fine without ya
+Looking fine, sipping wine, dancing on club couches (ah)
+Baby, why you wanna lose me like you don't need me? (Like you don't need me)
+Like I don't block you and you still try to reach me (still try to reach me)
+How you figure out how to call me from the TV? (Huh?)
+You running outta chances and this time I mean it (ah)
+Yeah, bet you miss my love, all in your bed (bed)
+Now you're stressing out, pulling your hair (hair)
+Smelling your pillows and wishing I was there (I was there)
+Sliding down the shower wall, looking sad (sad)
+I know it's hard to let go, I'm the best (I'm the best)
+Best you ever had and best you gon' get (gon' get)
+And if we break up, I don't wanna be friends (be friends)
+You're toxic
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (yeah, yeah, oh-oh)
+Making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy, beautiful)
+Making beautiful mistakes
+Nah-nah-nah
+Nah-nah-nah (ooh)
+Nah-nah-nah");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Best Song Ever","One Direction","Pop",201,"bestsongever","Maybe it's the way she walked (wow)
+Straight into my heart and stole it
+Through the doors and past the guards (wow)
+Just like she already owned it
+I said, 'can you give it back to me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Said her name was Georgia Rose (wow)
+And her daddy was a dentist
+Said I had a dirty mouth (I got a dirty mouth)
+But she kissed me like she meant it
+I said, 'can I take you home with me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+You know, I know, you know I'll remember you
+And I know, you know, I know you'll remember me
+And you know, I know, you know I'll remember you
+And I know, you know, I hope you'll remember
+How we danced, how we danced (one, two, one, two, three)
+How we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night (we danced, we danced)
+To the best song ever (it goes something like, yeah)
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Best song ever
+It was the best song ever
+It was the best song ever
+It was the best song ever");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Chikni Chameli","Shreya Ghoshal","Indian Film Pop",303,"chiknichameli","Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Haaye Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Note Hazaron Ke
+Khulla Chhutta Karane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Jungle Mein Aaj
+Mangal Karungi Main
+Bhookhe Sheron Se
+Khelungi Main
+
+Makhan Jaisi Hatheli Pe
+Jalte Angaar Le Lungi Main
+
+Haaye Gehre Paani Ki
+Machhli Hoon Raja
+Ghaat Ghaat Dariya Mein
+Ghoomi Hoon Main
+
+Teri Nazron Ki Leharon Se
+Haar Ke Doobi Hoon Main
+
+Haaye Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+
+Pyar Se Paros Dungi
+Toot Le Zara
+
+Yeh Toh Trailer Hai
+Poori Fillam Dikhane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Hey Banjar Basti Mein
+Aayi Hai Masti
+Aisa Namkeen Chehra Tera
+Meri Niyat Pe Chadhke Chhute Na
+Hai Rang Gehra Tera
+
+Joban Yeh Mera Kainchi Hai Raja
+Saare Pardon Ko Kaatungi Main
+Shamein Meri Akeli Hai Aaja
+Sang Tere Baatungi Main
+
+Haaye Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+
+Tod Ke Tijoriyon Ko
+Loot Le Zara
+Choom Ke Zakhmon Mein
+Thoda Malham Lagane Aayi
+
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Haaye.. Hehehe");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Die For You","The Weeknd","RnB",260,"dieForYou","I'm findin' ways to articulate the feelin' I'm goin' through
+I just can't say I don't love you (Yeah)
+'Cause I love you, yeah
+It's hard for me to communicate the thoughts that I hold
+But tonight, I'm gon' let you know
+Let me tell the truth
+Baby, let me tell the truth, yeah
+
+[Pre-Chorus]
+You know what I'm thinkin', see it in your eyes
+You hate that you want me, hate it when you cry
+You're scared to be lonely, 'specially in the night
+I'm scared that I'll miss you, happens every time
+I don't want this feelin', I can't afford love
+I try to find a reason to pull us apart
+It ain't workin' 'cause you're perfect
+And I know that you're worth it
+I can't walk away, oh
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you
+Baby, I would die for you, yeah (Say)
+You might also like
+[Verse 2]
+I'm findin' ways to manipulate the feelin' you're goin' through
+But, baby girl, I'm not blamin' you
+Just don't blame me, too, yeah
+'Cause I can't take this pain forever
+And you won't find no one that's better
+'Cause I'm right for you, babe
+I think I'm right for you, babe
+
+[Pre-Chorus]
+You know what I'm thinkin', see it in your eyes
+You hate that you want me, hate it when you cry
+It ain't workin' 'cause you're perfect
+And I know that you're worth it
+I can't walk away, oh
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you, uh
+Baby, I would die for you, yeah
+[Bridge]
+I would die for you, I would lie for you
+Keep it real with you, I would kill for you, my baby
+I'm just sayin', yeah
+I would die for you, I would lie for you
+Keep it real with you, I would kill for you, my baby
+Na-na-na, na-na-na, na-na-na
+
+[Chorus]
+Even though we're goin' through it
+And it makes you feel alone
+Just know that I would die for you
+Baby, I would die for you, yeah
+The distance and the time between us
+It'll never change my mind 'cause
+Baby, I would die for you
+Baby, I would die for you, yeah (Oh, babe)
+
+[Outro]
+(Die for you)");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Faasle","Aditya Rihkari","Lofi",216,"faasle","Bekaraar si thi raatein
+Beshumaar teri yaadein
+Behisaab gham ye tha mera
+Beasar rahi sharabein
+Besabar ye dil jo mera
+Bewakoof tha tere bina
+
+Bekaraar si thi raatein
+Beshumaar teri yaadein
+Behisaab gham ye tha mera
+Beasar rahi sharabein
+Besabar ye dil jo mera
+Bewakoof tha tere bina
+
+Tere bin raat din
+Bheegta tha main
+Ashkyon ki baarish mein
+Aaj tu hai saamne
+Jo kum hue hain saare
+Faasle
+(Huwu…) X3
+faasle
+(Huwu..) X3
+
+Aaj tod de
+Chaahe phir mujhe
+Tujhse tootne mein bhi ek maza hai
+Hum agar nahi baahon mein teri
+Kiski phir bhala
+Yeh Haseen Jaga hai
+
+Aaj tod de
+Chaahe phir mujhe
+Tujhse tootne mein bhi ek nasha hai
+Hum agar nahi baahon mein teri
+Kiski phir bhala
+Yeh Haseen Jaga hai
+
+Bezubaan si thi raatein
+Barsi phir jo teri yaadein
+Bikhra jinmein gham ye tha mera
+Betuki lagi sharabein
+Bheega jinmein dil ye mera
+Bewajah tha sab tere bina
+
+Aagayi ye shaam jo
+To kal suba ka
+Koi intezaar kyun kare
+Dooriyan khatam hui
+Khatam hue hain saare
+Faasle faasle faasle…");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Beautiful Mistakes","Adam Levine","Pop rock rap",217,"beautifulmistakes","It's beautiful, it's bittersweet
+You're like a broken home to me
+I take a shot of memories and black out like an empty street
+I fill my days with the way you walk and fill my nights with broken dreams
+I make up lies inside my head
+Like, 'One day, you'll come back to me'
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy)
+Making beautiful mistakes
+It's pitiful, I can't believe how every day gets worse for me
+I take a break, I cut you off to keep myself from looking soft
+I fill my nights with the way you was and still wake up with broken dreams
+I make these lies inside my head
+Feel like they're my reality
+Now I'm not holding on, not holding on
+I'm just depressed that you're gone
+Not holding on, not holding on
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy-ayy)
+Making beautiful mistakes
+You did me wrong 'cause I let you
+Usually, I like my situations beneficial
+Doing something different, got me looking stupid (damn)
+The only way I'm coming back to you is if you dream it, lucid (hmm)
+Prove it, if you made a promise then keep it (keep it)
+Why you wanna lie and then get mad? I don't believe it (boy, bye)
+But really, I was doing just fine without ya
+Looking fine, sipping wine, dancing on club couches (ah)
+Baby, why you wanna lose me like you don't need me? (Like you don't need me)
+Like I don't block you and you still try to reach me (still try to reach me)
+How you figure out how to call me from the TV? (Huh?)
+You running outta chances and this time I mean it (ah)
+Yeah, bet you miss my love, all in your bed (bed)
+Now you're stressing out, pulling your hair (hair)
+Smelling your pillows and wishing I was there (I was there)
+Sliding down the shower wall, looking sad (sad)
+I know it's hard to let go, I'm the best (I'm the best)
+Best you ever had and best you gon' get (gon' get)
+And if we break up, I don't wanna be friends (be friends)
+You're toxic
+Beautiful mistakes I make inside my head
+She's naked in my bed
+And now we lie awake, making beautiful mistakes
+I wouldn't take 'em back
+I'm in love with the past
+And now we lie awake, making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (yeah, yeah, oh-oh)
+Making beautiful mistakes
+Nah-nah-nah (in my head)
+Nah-nah-nah (in my bed)
+Nah-nah-nah (ayy, beautiful)
+Making beautiful mistakes
+Nah-nah-nah
+Nah-nah-nah (ooh)
+Nah-nah-nah");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Best Song Ever","One Direction","Pop",201,"bestsongever","Maybe it's the way she walked (wow)
+Straight into my heart and stole it
+Through the doors and past the guards (wow)
+Just like she already owned it
+I said, 'can you give it back to me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Said her name was Georgia Rose (wow)
+And her daddy was a dentist
+Said I had a dirty mouth (I got a dirty mouth)
+But she kissed me like she meant it
+I said, 'can I take you home with me?'
+She said, 'never in your wildest dreams'
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+You know, I know, you know I'll remember you
+And I know, you know, I know you'll remember me
+And you know, I know, you know I'll remember you
+And I know, you know, I hope you'll remember
+How we danced, how we danced (one, two, one, two, three)
+How we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night (we danced, we danced)
+To the best song ever (it goes something like, yeah)
+And we danced all night to the best song ever
+We knew every line, now I can't remember
+How it goes but I know that I won't forget her
+'Cause we danced all night to the best song ever
+I think it went oh, oh, oh
+I think it went yeah, yeah, yeah
+I think it goes (ooh)
+Best song ever
+It was the best song ever
+It was the best song ever
+It was the best song ever");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Chikni Chameli","Shreya Ghoshal","Indian Film Pop",303,"chiknichameli","Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Haaye Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Note Hazaron Ke
+Khulla Chhutta Karane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Jungle Mein Aaj
+Mangal Karungi Main
+Bhookhe Sheron Se
+Khelungi Main
+
+Makhan Jaisi Hatheli Pe
+Jalte Angaar Le Lungi Main
+
+Haaye Gehre Paani Ki
+Machhli Hoon Raja
+Ghaat Ghaat Dariya Mein
+Ghoomi Hoon Main
+
+Teri Nazron Ki Leharon Se
+Haar Ke Doobi Hoon Main
+
+Haaye Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+
+Pyar Se Paros Dungi
+Toot Le Zara
+
+Yeh Toh Trailer Hai
+Poori Fillam Dikhane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Hey Banjar Basti Mein
+Aayi Hai Masti
+Aisa Namkeen Chehra Tera
+Meri Niyat Pe Chadhke Chhute Na
+Hai Rang Gehra Tera
+
+Joban Yeh Mera Kainchi Hai Raja
+Saare Pardon Ko Kaatungi Main
+Shamein Meri Akeli Hai Aaja
+Sang Tere Baatungi Main
+
+Haaye Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+
+Tod Ke Tijoriyon Ko
+Loot Le Zara
+Choom Ke Zakhmon Mein
+Thoda Malham Lagane Aayi
+
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Haaye.. Hehehe");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("I ain't worried","OneRepublic","Pop Rock",154,"iaintworried","I don't know what you've been told
+But time is running out, no need to take it slow
+I'm stepping to you toe-to-toe
+I should be scared, honey, maybe so
+But I ain't worried 'bout it right now (right now)
+Keeping dreams alive (hey!), 1999, heroes
+I ain't worried 'bout it right now (right now)
+Swimmin' in the floods (hey!), dancing on the clouds below
+I ain't worried 'bout it
+I ain't worried 'bout it
+Hey!
+I don't know what you've been told
+But time is running out, so spend it like it's gold
+I'm living like I'm nine-zeros
+Got no regrets, even when I'm broke, yeah
+I'm at my best when I got something I'm wanting to steal
+Way too busy for them problems and problems to feel (yeah-yeah)
+No stressing, just obsessin' with sealin' the deal
+I'll take it in and let it go
+But I ain't worried 'bout it right now (right now)
+Keeping dreams alive (hey!), 1999, heroes
+I ain't worried 'bout it right now (right now)
+Swimmin' in the floods (hey!), dancing on the clouds below
+I ain't worried 'bout it
+I ain't worried 'bout it
+Hey!
+I ain't worried
+(Ooh-ooh, oh-oh, ooh-ooh)
+Oh, no-no
+I ain't worried 'bout it right now (right now)
+Keeping dreams alive (hey!), 1999, heroes
+I ain't worried 'bout it right now (right now)
+Swimmin' in the floods (hey!), dancing on the clouds below
+I ain't worried 'bout it (ooh-aah, aah-ooh)
+Hey!
+I ain't worried 'bout it (ooh-ahh, aah-ooh)
+Hey!
+I ain't worried 'bout it");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("Chikni Chameli","Shreya Ghoshal","Indian Film Pop",303,"chiknichameli","Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Haaye Bichhu Mere Naina
+Badi Zehreeli Ankh Maare
+Kamsin Kamariya Saali
+Ik Thumke Se Lakh Maare
+
+Note Hazaron Ke
+Khulla Chhutta Karane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Jungle Mein Aaj
+Mangal Karungi Main
+Bhookhe Sheron Se
+Khelungi Main
+
+Makhan Jaisi Hatheli Pe
+Jalte Angaar Le Lungi Main
+
+Haaye Gehre Paani Ki
+Machhli Hoon Raja
+Ghaat Ghaat Dariya Mein
+Ghoomi Hoon Main
+
+Teri Nazron Ki Leharon Se
+Haar Ke Doobi Hoon Main
+
+Haaye Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+Jaan Lewa Jalwa Hai
+Dekhne Mein Halwa Hai
+
+Pyar Se Paros Dungi
+Toot Le Zara
+
+Yeh Toh Trailer Hai
+Poori Fillam Dikhane Aayi
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Hey Banjar Basti Mein
+Aayi Hai Masti
+Aisa Namkeen Chehra Tera
+Meri Niyat Pe Chadhke Chhute Na
+Hai Rang Gehra Tera
+
+Joban Yeh Mera Kainchi Hai Raja
+Saare Pardon Ko Kaatungi Main
+Shamein Meri Akeli Hai Aaja
+Sang Tere Baatungi Main
+
+Haaye Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+Baaton Mein Ishara Hai
+Jismein Khel Saara Hai
+
+Tod Ke Tijoriyon Ko
+Loot Le Zara
+Choom Ke Zakhmon Mein
+Thoda Malham Lagane Aayi
+
+Husn Ki Tili Se
+Beedi Chillam Jalane Aayi
+
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+Aayi Chikni Chikni
+Chikni Chikni Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Aayi Chikni Chameli
+Chhup Ke Akeli
+Paua Chadha Ke Aayi
+
+Haaye.. Hehehe");
+
+
+insert into Songs(songName,artist,genre,duration,filename,lyrics) VALUES ("I want it that way","Backstreet Boys","Pop ballad",204,"iwantitthatway","Yeah
+You are my fire
+The one desire
+Believe when I say
+I want it that way
+But we are two worlds apart
+Can't reach to your heart
+When you say
+That I want it that way
+Tell me why
+Ain't nothin' but a heartache
+Tell me why
+Ain't nothin' but a mistake
+Tell me why
+I never wanna hear you say
+I want it that way
+Am I your fire?
+Your one desire
+Yes, I know it's too late
+But I want it that way
+Tell me why
+Ain't nothin' but a heartache
+Tell me why
+Ain't nothin' but a mistake
+Tell me why
+I never wanna hear you say
+I want it that way
+Now I can see that we've fallen apart
+From the way that it used to be, yeah
+No matter the distance, I want you to know
+That deep down inside of me
+You are my fire
+The one desire
+You are (you are, you are, you are)
+Don't wanna hear you say
+Ain't nothin' but a heartache
+Ain't nothin' but a mistake (don't wanna hear you say)
+I never wanna hear you say (oh, yeah)
+I want it that way
+Tell me why
+Ain't nothin' but a heartache
+Tell me why
+Ain't nothin' but a mistake
+Tell me why
+I never wanna hear you say (don't wanna hear you say)
+I want it that way
+Tell me why
+Ain't nothin' but a heartache
+Ain't nothin' but a mistake
+Tell me why
+I never wanna hear you say (don't wanna hear you say)
+I want it that way
+'Cause I want it that way");
+
+
+
