@@ -1,32 +1,23 @@
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
 def PLAN():
-    global Flag
+    global user
     query = input("Do you want to view your current plan?(y/n) => ")
     if query.lower() in "y":
-        if not Flag:
+        if not user[4]:
             print("This account currently does not have any membership. :( ")
             quest = input("Do you want to change your current plan?(y/n) => ")
             if quest.lower() in "y":
                 CHANGE()
-                Flag = True
             elif quest.lower() in "n":
                 return
             else:
                 print("Please enter a valid response.")
         else:
-            if plan == month1:
-                print ("You currently have the Monthly Plan.")
-            elif plan == month3:
-                print ("You currently have the Quarterly Plan.")
-            elif plan == month6:
-                print ("You currently have the Half Yearly Plan.")
-            elif plan == month12:
-                print ("You currently have the Yearly Plan.")
+            print ("Your plan expires on", user[4])
             quest = input("Do you want to change your current plan?(y/n) => ")
             if quest.lower() in "y":
                 CHANGE()
-                Flag = True
             elif quest.lower() in "n":
                 return
             else:
@@ -88,14 +79,14 @@ def playPlaylist(playlist):
     i=1
     print("Playing playlist {}".format(playlist[1]))
     print(playlist[2].split(','))
-    cur1.execute('UPDATE Playlists SET listenCount = listenCount + 1')
+    cur1.execute('UPDATE Playlists SET listenCount = listenCount + 1 where songId = {l[0]}')
     
     for song in playlist[2].split(','): 
         cur1.execute(('Select * from Songs where songID={}').format(song))
         song = cur1.fetchall()[0]
         print('\n Playing "{}. {} by {} \n'.format(str(i),song[1],song[2]))
         print('\n {} \n'.format(song[6]))
-        cur1.execute('UPDATE Songs SET listenCount = listenCount + 1')
+        cur1.execute('UPDATE Songs SET listenCount = listenCount + 1 where songId = {l[0]}')
         con1.commit()
         
         playSong(song[5])
@@ -104,7 +95,7 @@ def playPlaylist(playlist):
         
     print('\n End of Playlist \n')
 
-def searchSong():
+def searchSong(user):
     type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
     query = input("Enter search query").upper().strip()
     if type=='N':
@@ -133,13 +124,16 @@ def searchSong():
     if l==[]:
         print("Couldn't find songcode")
         return
-    print(l[0][6])
-    cur1.execute('UPDATE Songs SET listenCount = listenCount + 1')
+    if user[4]:
+        print(l[0][6])
+    else:
+        print("For lyrics, buy Rhythm premium")
+    cur1.execute(f'UPDATE Songs SET listenCount = listenCount + 1 where songId = {l[0][0]}')
     con1.commit()
     playSong(l[0][5])
     
 def CHANGE():
-    global plan
+    global user
     print('''AVAILABLE PLANS
             (A) Monthly Plan for 1 month
             (B) Quarterly Plan for 3 months 
@@ -148,21 +142,41 @@ def CHANGE():
     code1 = input("Enter the special code you've recieved => ")
     if code1 == month1:
         print ("You have now switched to the Monthly Plan.")
-        plan = code1
+        cur1.execute(f"UPDATE acc SET premium = CURRENT_DATE + INTERVAL 31 DAY WHERE username = '{user[2]}'")
+        cur1.execute(f"UPDATE save SET premium = CURRENT_DATE + INTERVAL 31 DAY WHERE username = '{user[2]}'")
     elif code1 == month3:
         print ("You have now switched to the Quarterly Plan.")
+        cur1.execute(f"UPDATE acc SET premium = CURRENT_DATE + INTERVAL 92 DAY WHERE username = '{user[2]}'")
+        cur1.execute(f"UPDATE save SET premium = CURRENT_DATE + INTERVAL 92 DAY WHERE username = '{user[2]}'")
         plan = code1
     elif code1 == month6:
         print ("You have now switched to the Half Yearly Plan.")
+        cur1.execute(f"UPDATE acc SET premium = CURRENT_DATE + INTERVAL 183 DAY WHERE username = '{user[2]}'")
+        cur1.execute(f"UPDATE save SET premium = CURRENT_DATE + INTERVAL 183 DAY WHERE username = '{user[2]}'")
         plan = code1
     elif code1 == month12:
         print ("You have now switched to the Yearly Plan.")
-        plan = code1
+        cur1.execute(f"UPDATE acc SET premium = CURRENT_DATE + INTERVAL 365 DAY WHERE username = '{user[2]}'")
+        cur1.execute(f"UPDATE save SET premium = CURRENT_DATE + INTERVAL 365 DAY WHERE username = '{user[2]}'")
     else:
         print ("Please enter a valid code.")
+    cur1.execute(f"Select * from acc where username = '{user[2]}'")
+    user = cur1.fetchall()[0]
+    if user[4]:
+        print("Your plan expires on",user[4])
+    else:
+        print("You don't have a premium plan")
+            
+def topSongs():
+    cur1.execute("Select * from songs order by listencount DESC LIMIT 5")
+    result = cur1.fetchall()
+    i=1
+    for song in result:
+        print(f'{i}. {song[1]} Listens - {song[7]}')
+        i+=1
 
 def viewPlaylist():
-    cur1.execute("SELECT * from Playlists where owner='Satvik'")
+    cur1.execute(f"SELECT * from Playlists where owner='{user[2]}'")
     pList = cur1.fetchall()
     # print(pList)
     for p in pList:
@@ -186,12 +200,10 @@ def viewPlaylist():
 #--------------------------------------TEMPORARY------------------------------------------------
 
 
-plan = "abcd"
 month1 = "abcd"
 month3 = "bcde"
 month6 = "cdef"
 month12= "defg"
-Flag = True
 
 import pymysql as sql
 import smtplib
@@ -215,7 +227,7 @@ def forgotPassword():
     server.starttls()
     server.login('siddharth1411agrawal@gmail.com', 'qsys xkmh xvlj tvbc')
     code = random.randrange(1000,9999)
-    server.sendmail('siddharth1411agrawal@gmail.com', result[0][1], f'Your otp is {code}. Enter this in app to change password')
+    server.sendmail(email, result[0][1], f'Your otp is {code}. Enter this in app to change password')
     server.close()
 
     userCode = int(input("Enter code sent to your email to update password"))
@@ -231,11 +243,13 @@ def signup():
     q= "create table if not exists acc ( name varchar(20) not null ,\
                                          emailid varchar (50) not null,\
                                          username varchar(30)not null primary key,\
-                                         password varchar(40) not null)"
+                                         password varchar(40) not null,\
+                                         premium DATE )"
     q2= "create table if not exists save ( name varchar(20) not null ,\
                                          emailid varchar (50) not null,\
                                          username varchar(30)not null primary key,\
-                                         password varchar(40) not null)"
+                                         password varchar(40) not null,\
+                                         premium DATE)"
     cur1.execute(q)
     cur1.execute(q2)
     n= input("enter full name")
@@ -251,26 +265,19 @@ def signup():
             flag=1
     p= input ("enter password")
     e= input ("enter emailid")
-    q1="insert into acc values ('{}','{}','{}','{}')".format(n,e,u,p)
+    q1="insert into acc values ('{}','{}','{}','{}',NULL)".format(n,e,u,p)
     cur1.execute(q1)
     con1.commit()
     print("welcome")
     save=input("do you want to save login information?").lower()
     if save in "yes":
-        q1="insert into save values ('{}','{}','{}','{}')".format(n,e,u,p)
+        q1="insert into save values ('{}','{}','{}','{}',NULL)".format(n,e,u,p)
         cur1.execute(q1)
         con1.commit()
-    
+    return [n,e,u,p,None]
     
    
 def login():
-    q="select * from save"
-    cur1.execute(q)
-    result = cur1.fetchall()
-    if result:
-        print("Login already exists")
-        print ("welcome")
-        return
         
     user=input("enter username")
     passw=input("enter password")
@@ -278,6 +285,7 @@ def login():
     res=cur1.execute(q1)
     if res:
         print("welcome")
+        return res[0]
     else:
         print("no such account exists")
 
@@ -292,6 +300,17 @@ mixer.init()
 user = None
 
 while True: 
+    try:
+        q="select * from save"
+        cur1.execute(q)
+        result = cur1.fetchall()
+        if result:
+            print("Login already exists")
+            user = result[0]
+            print ("welcome")
+            break 
+    except:
+        pass
     choice=input('''Do you want to
     (A) Sign Up
     (B) Log in
@@ -299,9 +318,13 @@ while True:
     ''').lower()
 
     if choice =='a':
-        signup()
+        user = signup()
+        if user:
+            break
     elif choice=='b':
-        login()
+        user = login()
+        if user:
+            break
     elif choice=='c':
         forgotPassword()
     elif choice=='d':
@@ -310,38 +333,40 @@ while True:
     else:
         print("please enter valid number")
 
-    print('''---------MAIN--MENU---------
-    (A) Search
-    (B) Create Playlist
-    (C) View Playlists
-    (D) Generate Report
-    (E) Check Subscription Plan
-    (F) Logout
-    (G) End Program
-    ----------------------------''')
+print(user)
+
+print('''---------MAIN--MENU---------
+(A) Search
+(B) Create Playlist
+(C) View Playlists
+(D) Generate Report
+(E) Check Subscription Plan
+(F) Logout
+(G) End Program
+----------------------------''')
 
 
-    while True:
+while True:
         # playSong('dangerously')
-        query = input("Please Enter the task you want to carry out => ")
-        if query.lower() in "a":
-            searchSong()
-        elif query.lower() in "b":
-            createPlaylist()
-        elif query.lower() in "c":
-            viewPlaylist()
-        elif query.lower() in "d":
-            print ("To be done")
-        elif query.lower() in "e":
-            PLAN()
-        elif query.lower() in "f":
-            cur1.execute("drop table save")
-            print("Logged out")        
-        elif query.lower() in "g":
-            break
+    query = input("Please Enter the task you want to carry out => ")
+    if query.lower() in "a":
+        searchSong(user)
+    elif query.lower() in "b":
+        createPlaylist()
+    elif query.lower() in "c":
+        viewPlaylist()
+    elif query.lower() in "d":
+        topSongs()
+    elif query.lower() in "e":
+        PLAN()
+    elif query.lower() in "f":
+        cur1.execute("drop table save")
+        print("Logged out")        
+    elif query.lower() in "g":
+        break
         
-        else:
-            print("Please enter a valid response")
+    else:
+        print("Please enter a valid response")
 
 print("Thank you for using Rhythm")
 con1.commit()
