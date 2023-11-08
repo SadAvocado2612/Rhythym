@@ -1,3 +1,5 @@
+import threading,ctypes,pytimedinput #pip install pytimedinput
+
 #-----------------------------------------FUNCTIONS----------------------------------------------------
 
 def PLAN():
@@ -60,24 +62,83 @@ def createPlaylist():
         cur1.execute(q1)
         print("Execute")
         con1.commit()
+    except:
+        pass
 
-
-
-
-def playSong(filename):
-    # playsound('C:\Resume\Rythym\dangerously.mp3') 
-    mixer.music.load('songs/'+filename+'.mp3')
-    mixer.music.set_volume(0.7)
-    mixer.music.play()
+class thread_with_exception(threading.Thread):
+    def __init__(self, name, func):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.func = func
+             
+    def run(self):
+        self.func()
+          
+    def get_id(self):
+        if hasattr(self, '_thread_id'):
+            return self._thread_id
+        for id, thread in threading._active.items():
+            if thread is self:
+                return id
+  
+    def raise_exception(self):
+        thread_id = self.get_id()
+        res = ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id,
+              ctypes.py_object(SystemExit))
+        if res > 1:
+            ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id, 0)
+            print('Exception raise failure')
+            
+def f1():
+    print("Press 1 to pause, 2 to resume, 3 to go forward => ")
     while True:
-        query = input("Press 1 to pause, 2 to resume, 3 to go forward => ")
+        query = pytimedinput.timedInput(timeout=5)
         if query == '1':
             mixer.music.pause()     
         elif query == '2':
             mixer.music.unpause()
         elif query == '3':
+            # mixer.music.fadeout()
             mixer.music.stop()
             break
+    return   
+def f2(duration):
+    while True:
+         if mixer.music.get_pos() > (duration-1)*1000:
+             break
+    return
+
+def playSong(filename,duration):
+    # global stopF1
+    global listentime
+    listentime-= duration
+    # playsound('C:\Resume\Rythym\dangerously.mp3') 
+    mixer.music.load('songs/'+filename+'.mp3')
+    mixer.music.set_volume(0.7)
+    mixer.music.play()
+    
+    t1 = thread_with_exception('F1',lambda:f1())
+    t2 = thread_with_exception('F2',lambda: f2(duration) )
+    t1.start()
+    t2.start()
+    while True:
+        if not t1.is_alive():
+            print("Song ended")
+            t2.raise_exception()
+            t2.join()
+            break
+        if not t2.is_alive():
+            print("Song over")
+            t1.raise_exception()
+            t1.join()
+            break
+            
+    print("Hey")
+    mixer.music.stop()    
+    
+    if listentime<0:
+        print("Time for an ad")
+        listentime = 30*60
 
 
 
@@ -95,7 +156,7 @@ def playPlaylist(playlist):
         cur1.execute('UPDATE Songs SET listenCount = listenCount + 1 where songId = {l[0]}')
         con1.commit()
         
-        playSong(song[5])
+        playSong(song[5], song[4])
         
         i+=1
         
@@ -136,7 +197,7 @@ def searchSong(user):
         print("For lyrics, buy Rhythm premium")
     cur1.execute(f'UPDATE Songs SET listenCount = listenCount + 1 where songId = {l[0][0]}')
     con1.commit()
-    playSong(l[0][5])
+    playSong(l[0][5],l[0][4])
     
 
 
@@ -168,6 +229,7 @@ def CHANGE():
         cur1.execute(f"UPDATE save SET premium = CURRENT_DATE + INTERVAL 365 DAY WHERE username = '{user[2]}'")
     else:
         print ("Please enter a valid code.")
+    con1.commit()
     cur1.execute(f"Select * from acc where username = '{user[2]}'")
     user = cur1.fetchall()[0]
     if user[4]:
@@ -216,6 +278,7 @@ month12= "defg"
 import pymysql as sql
 import smtplib
 import random
+
 
 con1= sql.connect(host="localhost" , user="root" , passwd="Siddharth@1234" , database="Rhythm")
 cur1= con1.cursor()
@@ -301,11 +364,14 @@ def login():
 
 import pymysql as p
 from pygame import mixer
+from time import sleep
+import datetime
 
 con1 = p.connect (host = "localhost", user ="root", passwd = "Siddharth@1234", database = "Rhythm", port =3306)
 cur1 = con1.cursor()
 mixer.init()
 user = None
+listentime = 30*60 #30 minutes of uninterrupted listening
 
 while True: 
     try:
@@ -341,7 +407,13 @@ while True:
     else:
         print("please enter valid number")
 
-print(user)
+if user[4] and user[4]< datetime.date.today():
+    print("Your subscription has expired")
+    cur1.execute(f"UPDATE acc SET premium = NULL WHERE username = '{user[2]}'")
+    cur1.execute(f"UPDATE save SET premium = NULL WHERE username = '{user[2]}'")
+    user[4] = None
+    con1.commit()
+        
 
 print('''---------MAIN--MENU---------
 (A) Search
