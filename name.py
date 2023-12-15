@@ -137,7 +137,7 @@ def playSong(filename,duration):
     print("Hey")
     mixer.music.stop()    
     
-    if listentime<0:
+    if listentime<0 and not user[4]:
         print("Time for an ad")
         chosenAd = random.choice(adsList)
         mixer.music.load(f'ads/{chosenAd[0]}.mp3')
@@ -157,7 +157,8 @@ def playPlaylist(playlist):
         cur1.execute(f'Select * from Songs where songID={song}')
         song = cur1.fetchall()[0]
         print('\n Playing "{}. {} by {} \n'.format(str(i),song[1],song[2]))
-        print('\n {} \n'.format(song[6]))
+        if user[4]:
+            print('\n {} \n'.format(song[6]))
         cur1.execute(f'UPDATE Songs SET listenCount = listenCount + 1 where songID= {l[0]}')
         con1.commit()
         
@@ -169,7 +170,7 @@ def playPlaylist(playlist):
 
 def searchSong(user):
     type = input("Do you want to search by name(N), genre(G) or artist(A)?").upper().strip()
-    query = input("Enter search query").upper().strip()
+    query = input("Enter search query: ").upper().strip()
 
     if type=='N':
         cur1.execute(("Select * from Songs where UPPER(songName) LIKE '%{}%'").format(query))
@@ -256,12 +257,12 @@ def viewPlaylist():
     # print(pList)
     for p in pList:
         print("Playlist {}, code - {}".format(p[1],p[0]))
-    q = input("Press p to play or q to quit").upper().strip()
+    q = input("Press p to play or q to quit:").upper().strip()
     
     if 'q' in q:
         return
     # elif 'p' in q:
-    q = input("Enter playlist code")
+    q = input("Enter playlist code:")
     temp = [x for x in pList if str(x[0])==q]
     if temp ==[]:
         print("Playlist not found")
@@ -275,13 +276,16 @@ def viewPlaylist():
 # def sharePlaylist():
         
 
-#--------------------------------------TEMPORARY------------------------------------------------
+#--------------------------------------SETUP------------------------------------------------
+
 
 
 month1 = "abcd"
 month3 = "bcde"
 month6 = "cdef"
 month12= "defg"
+
+
 
 import pymysql as sql
 import smtplib
@@ -292,6 +296,14 @@ import time
 con1= sql.connect(host="localhost" , user="root" , passwd="Siddharth@1234" , database="Rhythm")
 cur1= con1.cursor()
 adsList = [['MokshAd',18],['lyricAd',24],['simpleAd',19],['bullySatvik',26]]
+
+# with open('name.py') as h:
+#     file = h.read()
+#     for comm in h.split(';'):
+#         cur1.exec(comm)
+
+#--------------------------------------USER STUFF------------------------------------------------
+
 def forgotPassword():
     email = input("Enter your email").lower()
     q = f"select * from acc where emailid={email}"
@@ -310,7 +322,7 @@ def forgotPassword():
     server.sendmail(email, result[0][1], f'Your otp is {code}. Enter this in app to change password')
     server.close()
 
-    userCode = int(input("Enter code sent to your email to update password"))
+    userCode = int(input("Enter code sent to your email to update password:"))
     if userCode ==code:
         newPass = input("Enter new password, and is baar mat bhulna")
         q = cur1.execute(f"UPDATE acc SET password={newPass}")
@@ -343,24 +355,25 @@ def signup():
             print ("username already taken")
         else:
             flag=1
-    p= input ("enter password")
-    e= input ("enter emailid")
+    p= input ("Enter Password:")
+    e= input ("Enter Email ID:")
     q1="insert into acc values ('{}','{}','{}','{}',NULL)".format(n,e,u,p)
     cur1.execute(q1)
     con1.commit()
-    print("welcome")
-    save=input("do you want to save login information?").lower()
+    print("WELCOME")
+    save=input("Do you want to save login information?").lower()
     if save in "yes":
         q1="insert into save values ('{}','{}','{}','{}',NULL)".format(n,e,u,p)
         cur1.execute(q1)
         con1.commit()
+    
     return [n,e,u,p,None]
     
    
 def login():
         
-    user=input("enter username")
-    passw=input("enter password")
+    user=input("Enter Username:")
+    passw=input("Enter Password:")
     q1="select * from acc where username='{}' and password='{}' ".format(user,passw)
     res=cur1.execute(q1)
     if res:
@@ -413,7 +426,7 @@ while True:
         break
 
     else:
-        print("please enter valid number")
+        print("Please enter valid value")
 
 if user[4] and user[4]< datetime.date.today():
     print("Your subscription has expired")
@@ -451,6 +464,7 @@ while True:
     elif query.lower() in "f":
         cur1.execute("drop table save")
         print("Logged out")        
+        break
     elif query.lower() in "g":
         break
         
