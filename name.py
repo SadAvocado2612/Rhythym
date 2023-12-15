@@ -57,10 +57,10 @@ def createPlaylist():
                     continue
             else:
                 print ("This song does not exist in our current database. Sorry for inconvenience.")
-        print("Exited")
-        q1 = "insert into playlists(songsList, owner, sharedUsers, playlistName) VALUES('{}','{}','{}','{}')".format(','.join(songList), "Satvik","",Playlist1)
+        # print(user[2])
+        print(user)
+        q1 = "insert into playlists(songsList, owner, sharedUsers, playlistName) VALUES('{}','{}','{}','{}')".format(','.join(songList), user[2],"",Playlist1)
         cur1.execute(q1)
-        print("Execute")
         con1.commit()
     except:
         pass
@@ -93,11 +93,11 @@ def f1():
     print("Press 1 to pause, 2 to resume, 3 to go forward => ")
     while True:
         query = pytimedinput.timedInput(timeout=5)
-        if query == '1':
+        if query[0] == '1':
             mixer.music.pause()     
-        elif query == '2':
+        elif query[0] == '2':
             mixer.music.unpause()
-        elif query == '3':
+        elif query[0] == '3':
             # mixer.music.fadeout()
             mixer.music.stop()
             break
@@ -106,6 +106,7 @@ def f2(duration):
     while True:
          if mixer.music.get_pos() > (duration-1)*1000:
              break
+         time.sleep(2)
     return
 
 def playSong(filename,duration):
@@ -138,22 +139,26 @@ def playSong(filename,duration):
     
     if listentime<0:
         print("Time for an ad")
-        listentime = 30*60
+        chosenAd = random.choice(adsList)
+        mixer.music.load(f'ads/{chosenAd[0]}.mp3')
+        mixer.music.play()
+        time.sleep(chosenAd[1])
+        listentime = 30
 
 
 
 def playPlaylist(playlist):
     i=1
     print("Playing playlist {}".format(playlist[1]))
-    print(playlist[2].split(','))
-    cur1.execute('UPDATE Playlists SET listenCount = listenCount + 1 where songId = {l[0]}')
+    l = playlist[2].split(',')
+    cur1.execute(f'UPDATE Playlists SET listenCount = listenCount + 1 WHERE SNo = {l[0]}')
     
     for song in playlist[2].split(','): 
-        cur1.execute(('Select * from Songs where songID={}').format(song))
+        cur1.execute(f'Select * from Songs where songID={song}')
         song = cur1.fetchall()[0]
         print('\n Playing "{}. {} by {} \n'.format(str(i),song[1],song[2]))
         print('\n {} \n'.format(song[6]))
-        cur1.execute('UPDATE Songs SET listenCount = listenCount + 1 where songId = {l[0]}')
+        cur1.execute(f'UPDATE Songs SET listenCount = listenCount + 1 where songID= {l[0]}')
         con1.commit()
         
         playSong(song[5], song[4])
@@ -251,14 +256,17 @@ def viewPlaylist():
     # print(pList)
     for p in pList:
         print("Playlist {}, code - {}".format(p[1],p[0]))
-    q = input("Press p to play, v to view sons or q to quit").upper().strip()
+    q = input("Press p to play or q to quit").upper().strip()
     
-    # if 'q' in q:
-    #     return
+    if 'q' in q:
+        return
     # elif 'p' in q:
     q = input("Enter playlist code")
-    temp = [x for x in pList if str(x[0])==q][0] 
-    playPlaylist(temp)
+    temp = [x for x in pList if str(x[0])==q]
+    if temp ==[]:
+        print("Playlist not found")
+    else:
+        playPlaylist(temp[0])
     # elif 'v' in q:
         # v = input("Enter playlist code to v")
         # temp = [x for x in pList if str(x[0])==q][0] 
@@ -278,11 +286,12 @@ month12= "defg"
 import pymysql as sql
 import smtplib
 import random
+import time
 
 
 con1= sql.connect(host="localhost" , user="root" , passwd="Siddharth@1234" , database="Rhythm")
 cur1= con1.cursor()
-
+adsList = [['MokshAd',18],['lyricAd',24],['simpleAd',19],['bullySatvik',26]]
 def forgotPassword():
     email = input("Enter your email").lower()
     q = f"select * from acc where emailid={email}"
@@ -364,14 +373,13 @@ def login():
 
 import pymysql as p
 from pygame import mixer
-from time import sleep
 import datetime
 
 con1 = p.connect (host = "localhost", user ="root", passwd = "Siddharth@1234", database = "Rhythm", port =3306)
 cur1 = con1.cursor()
 mixer.init()
 user = None
-listentime = 30*60 #30 minutes of uninterrupted listening
+listentime = 30 #30 minutes of uninterrupted listening
 
 while True: 
     try:
@@ -415,7 +423,12 @@ if user[4] and user[4]< datetime.date.today():
     con1.commit()
         
 
-print('''---------MAIN--MENU---------
+
+
+
+while True:
+        # playSong('dangerously')
+    print('''---------MAIN--MENU---------
 (A) Search
 (B) Create Playlist
 (C) View Playlists
@@ -424,10 +437,6 @@ print('''---------MAIN--MENU---------
 (F) Logout
 (G) End Program
 ----------------------------''')
-
-
-while True:
-        # playSong('dangerously')
     query = input("Please Enter the task you want to carry out => ")
     if query.lower() in "a":
         searchSong(user)
